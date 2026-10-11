@@ -6,8 +6,8 @@ from urllib.parse import urlparse, parse_qs
 
 class handler(BaseHTTPRequestHandler):
 
-    def do_GET(self):
-        params = parse_qs(urlparse(self.path).query)
+def do_GET(self):
+    self.send_json(200, {"status": "Chat endpoint is online"})
 
         mode = params.get("hub.mode", [""])[0]
         token = params.get("hub.verify_token", [""])[0]
